@@ -43,7 +43,7 @@ function onErrorWq(error) {
    $(".errorChk").html("Failed to Confirmed Location.");
 }
 //---- online 
-var apipath="http://e2.businesssolutionapps.com/planbd/syncmobile_150308/";
+var apipath="http://e2.businesssolutionapps.com/planbd/syncmobile_150405/";
 
 //--- local
 //var apipath="http://127.0.0.1:8000/planbd/syncmobile_150308/";
@@ -424,13 +424,13 @@ function achDataNext(){
 			$("#achCluster").show();
 			$("#achHhID").show();
 			$("#latType").val("");
-			$(".hh_or_wp_id").text("Water Point ID");
+			$(".hh_or_wp_id").html("Water Point ID<sup class='reqField'>*</sup>");
 			}
 		if (achPlanSector=="Sanitation"){
 			$("#achCluster").show();
 			$("#achHhID").show();
 			$("#tbl_sanitation").show();
-			$(".hh_or_wp_id").text("HH ID");
+			$(".hh_or_wp_id").html("HH ID<sup class='reqField'>*</sup>");
 			
 			}
 		
@@ -452,17 +452,32 @@ function achDataNext(){
 
 //-----------------------------achivement data people support
 function achivementDataPSupport(){
-	$(".errorChk").text("");
+	$(".errorChk").text("");	
 	
+	var now = new Date();
+	var month=now.getUTCMonth()+1;
+	if (month<10){
+		month="0"+month
+		}
+	var day=now.getUTCDate();
+	if (day<10){
+		day="0"+day
+		}
 		
-	var ach_word=$("#achWord").val();	
+	var year=now.getUTCFullYear();
 	
+	var currentDay = new Date(year+ "-" + month + "-" + day);
+	
+	
+			
+	var ach_word=$("#achWord").val();	
 	
 	//sanitation/ water
 	var ach_cluster=$("#achClusterID").val();	
 	
 	// hh id
 	var ach_id=$("#achID").val();
+	
 	
 	//hand wash
 	var hnd_event=$("input[name='hnd_event']:checked").val();
@@ -490,13 +505,15 @@ function achivementDataPSupport(){
 	var poorEx=$("#poorEx").val(); 
 	
 	//for sanitation 
-	var latType=$("#latType").val();
-	
-	var sanCompDate=$("#san_conp_date").val();
+	var latType=$("#latType").val();	
+	var sanCompDate=$("#san_conp_date").val();	
+		
+		
 	
 	//water	
 	var wpTechnology=$("#wp_tech").val();
 	var WpCompDate=$("#wp_conp_date").val();
+		
 	
 	/*if(ach_cluster==''){
 		ach_cluster=0;
@@ -561,71 +578,116 @@ function achivementDataPSupport(){
 		$(".errorChk").text("Required Poor C category ");
 	}else if (poorEx=="" ){
 		$(".errorChk").text("Required Poor D category ");
-	}*/else{			
-			if (achPlanSector!="Handwash" && ach_id.length==undefined){
-				$(".errorChk").text("Required HH ID ");						
-			}else{				
-				var totalMF=eval(male)+eval(female)+eval(girlsUnder)+eval(boysUnder)+eval(girls)+eval(boys);
-				var population=eval(totalMF);
-				//var totalPoor=eval(poorA)+eval(poorB)+eval(poorC)+eval(poorEx);
-				// chk population
-				//alert(population);
-				
-				if (population<=0){					
-					$(".errorChk").text("Required Population ");
-				}else if (achPlanSector=="Sanitation" && population>15){
-					$(".errorChk").text("Maximum Population 15");
+	}*/else{
+			if (achPlanSector!="Handwash" && ach_cluster==""){
+				$(".errorChk").text("Required Cluster ");						
+			}else{
+				if (achPlanSector!="Handwash" && ach_id==""){
+					$(".errorChk").text("Required HH ID/ Water point ID");						
 				}else{
-					achWord=ach_word
-										
-					achCluster=ach_cluster
+					/*if (isNaN(ach_id)==true){
+						$(".errorChk").text("HH ID/ Water point ID is Number and max three digit ");
+					}else{						
+						if (ach_id.toString().length>3){							
+							$(".errorChk").text("HH ID/ Water point ID maximum three digit ");
+						}else{						
+							if (ach_id.toString().length==1){
+								ach_id='00'+ach_id
+							}else if (ach_id.toString().length==2){
+								ach_id='0'+ach_id
+								}
+						   }
+						}*/
 					
-					//hand wash
-					achHndEvent=hnd_event
-					
-					//hh id
-					achID=ach_id
-					//achCBOid=cbo_id
-					
-					achPopulation=population
-					achHousehold=household
-					achMale=male
-					achFemale=female
-					achGirlsUnder=girlsUnder
-					achBoysUnder=boysUnder
-					achGirls=girls
-					achBoys=boys
-					achDapMale=dapMale
-					achDapFemale=dapFemale
-					achPoorA=poorA
-					achPoorB=poorB
-					achPoorC=0
-					achPoorEx=poorEx
-					achEthMale=0
-					achEthFemale=ethFemale
-					
-								
-					achLatType=latType
-					achComDate=sanCompDate
-					
-					achWpTech=wpTechnology;
-					achWpComDate=WpCompDate;
-					
-					var ach_plan_id=$("input[name='activity_select']:checked").val();
-					//alert(ach_plan_id);
-					
-					$(".errorChk").text("");
-					
-					
-					var url="#inPhoto";
-					$.mobile.navigate(url);
-					//$(location).attr('href',url);
-						
-				}//population
+					if (achPlanSector=="Sanitation" && latType==""){
+						$(".errorChk").text("Required Latrine Type");						
+					}else{
+						if (achPlanSector=="Sanitation" && sanCompDate==""){
+							$(".errorChk").text("Required Completion Date");						
+						}else{
+							var chkSanCompDate = new Date(sanCompDate);
+							if (chkSanCompDate>currentDay){
+								$(".errorChk").text("Required Completion Date Less Then Today");
+							}else{							
+								if (achPlanSector=="Water" && wpTechnology==""){
+									$(".errorChk").text("Required Technology");						
+								}else{
+									if (achPlanSector=="Water" && WpCompDate==""){
+										$(".errorChk").text("Required Water Point Completion Date");						
+									}else{
+										var chkWpCompDate=new Date(WpCompDate);
+										if (chkWpCompDate>currentDay){
+											$(".errorChk").text("Required Water Point Completion Date Less Then Today");
+										}else{
+											var totalMF=eval(male)+eval(female)+eval(girlsUnder)+eval(boysUnder)+eval(girls)+eval(boys);
+											var population=eval(totalMF);
+											//var totalPoor=eval(poorA)+eval(poorB)+eval(poorC)+eval(poorEx);
+											// chk population
+											//alert(population);
+											
+											if (population<=0){					
+												$(".errorChk").text("Required Population ");
+											}else if (achPlanSector=="Sanitation" && population>15){
+												$(".errorChk").text("Maximum Population 15");
+											}else{
+												achWord=ach_word
+																	
+												achCluster=ach_cluster
+												
+												//hand wash
+												achHndEvent=hnd_event
+												
+												//hh id
+												achID=ach_id
+												//achCBOid=cbo_id
+												
+												achPopulation=population
+												achHousehold=household
+												achMale=male
+												achFemale=female
+												achGirlsUnder=girlsUnder
+												achBoysUnder=boysUnder
+												achGirls=girls
+												achBoys=boys
+												achDapMale=dapMale
+												achDapFemale=dapFemale
+												achPoorA=poorA
+												achPoorB=poorB
+												achPoorC=0
+												achPoorEx=poorEx
+												achEthMale=0
+												achEthFemale=ethFemale
+												
+															
+												achLatType=latType
+												achComDate=sanCompDate
+												
+												achWpTech=wpTechnology;
+												achWpComDate=WpCompDate;
+												
+												var ach_plan_id=$("input[name='activity_select']:checked").val();
+												//alert(ach_plan_id);
+												
+												$(".errorChk").text("");
+												
+												
+												var url="#inPhoto";
+												$.mobile.navigate(url);
+												//$(location).attr('href',url);
+													
+											}//population
+										}//wp date chk
+									}// wp completion date
+							 }//technology
+					  }// chk completion date
+					}//lat completion date						
+				}//lat type					
 			}//chk length
+		  }//cluster
 		}
 	}
-	
+
+
 //------------------ show population
 function totalPopulation(){
 	var male=$("#male").val();
@@ -1166,7 +1228,7 @@ function achiveDataSubmit(){
 	}
 
 function syncDataAch(){	
-			/*$(".errorChk").text(apipath+'submitAchiveData?cid=PLANBD&mobile_no='+localStorage.mobile_no+'&syncCode='+localStorage.sync_code+'&ach_plan_id='+achPlanId+'&ach_cbo_id=0&ach_id='+achID+'&ach_population='+achPopulation+'&ach_household='+achHousehold+'&ach_male='+achMale+'&ach_female='+achFemale+'&ach_girlsUnder='+achGirlsUnder+'&ach_boysUnder='+achBoysUnder+'&ach_girls='+achGirls+'&ach_boys='+achBoys+'&ach_dapMale='+achDapMale+'&ach_dapFemale='+achDapFemale+'&ach_poorA='+achPoorA+'&ach_poorB='+achPoorB+'&ach_poorC='+achPoorC+'&ach_poorEx='+achPoorEx+'&ach_ethMale='+achEthMale+'&ach_ethFemale='+achEthFemale+'&ach_service_recpient=&latitude='+latitude+'&longitude='+longitude+'&ach_photo='+imageName+'&ach_startDt='+startDt+'&ach_word='+achWord+'&ach_event='+achHndEvent+'&ach_cluster='+achCluster+'&ach_lat_type='+achLatType+'&ach_lat_comp_date='+achComDate+'&ach_wp_tech='+achWpTech+'&ach_wp_comp_date='+achWpComDate);*/	
+			
 			$.ajax({
 					type: 'POST',
 					url:apipath+'submitAchiveData?cid=PLANBD&mobile_no='+localStorage.mobile_no+'&syncCode='+localStorage.sync_code+'&ach_plan_id='+achPlanId+'&ach_cbo_id=0&ach_id='+achID+'&ach_population='+achPopulation+'&ach_household='+achHousehold+'&ach_male='+achMale+'&ach_female='+achFemale+'&ach_girlsUnder='+achGirlsUnder+'&ach_boysUnder='+achBoysUnder+'&ach_girls='+achGirls+'&ach_boys='+achBoys+'&ach_dapMale='+achDapMale+'&ach_dapFemale='+achDapFemale+'&ach_poorA='+achPoorA+'&ach_poorB='+achPoorB+'&ach_poorC='+achPoorC+'&ach_poorEx='+achPoorEx+'&ach_ethMale='+achEthMale+'&ach_ethFemale='+achEthFemale+'&ach_service_recpient=&latitude='+latitude+'&longitude='+longitude+'&ach_photo='+imageName+'&ach_startDt='+startDt+'&ach_word='+achWord+'&ach_event='+achHndEvent+'&ach_cluster='+achCluster+'&ach_lat_type='+achLatType+'&ach_lat_comp_date='+achComDate+'&ach_wp_tech='+achWpTech+'&ach_wp_comp_date='+achWpComDate,
@@ -1219,11 +1281,15 @@ function syncDataAch(){
 							$("#btn_ach_submit").show();
 						}else if(result=='Failed4'){
 							//$(".errorChk").text('Failed to Submit');
-							$(".errorChk").text('Invalid Cluster');									
+							$(".errorChk").text('Invalid Cluster');										
 							$("#btn_ach_submit").show();
 						}else if(result=='Failed5'){
 							//$(".errorChk").text('Failed to Submit');
-							$(".errorChk").text('ID Already Exists');									
+							$(".errorChk").text('Event Already Exists');															
+							$("#btn_ach_submit").show();
+						}else if(result=='Failed6'){
+							//$(".errorChk").text('Failed to Submit');
+							$(".errorChk").text('Already Exists');									
 							$("#btn_ach_submit").show();
 						}else{
 							$(".errorChk").text('Try again after 5 minutes');																		
@@ -1252,7 +1318,7 @@ function ffReport(){
 					for(i=0;i<ach_list_array.length;i++){
 						ach_array=ach_list_array[i].split("fdfd");
 						
-						$('#ff_rpt_activity').append('<tr class="plan_tr" style="font-size:11px;"><td >'+ach_array[0]+'</td><td>'+ach_array[1]+'</td><td>'+ach_array[2]+'</td></tr>');
+						$('#ff_rpt_activity').append('<tr class="plan_tr" style="font-size:11px;"><td >'+ach_array[0]+'</td><td>'+ach_array[1]+'</td><td>'+ach_array[2]+'</td><td>'+ach_array[3]+'</td></tr>');
 						
 					}
 			
@@ -2999,7 +3065,7 @@ navigator.app.exitApp();
 }
 
 function showLatLong(){
-	alert ($("#ach_lat").val());
+	//alert ($("#ach_lat").val());
 	}
 
 // ----------------Camera-----------------------------------------------

@@ -72,7 +72,7 @@
                 
             </ul>
     </div>
-    <div data-theme="d" data-role="footer" data-position="fixed" style="font-size:12px;background-color:#CCC;" align="center" >m-Reporting 20150309</div><!------/footer-->
+    <div data-theme="d" data-role="footer" data-position="fixed" style="font-size:12px;background-color:#CCC;" align="center" >m-Reporting 20150401</div><!------/footer 20150309 -->
     
     <div data-role="panel" id="leftpanel" data-position="left" data-display="overlay" data-theme="d">
         <div align="center"><img src="wab.jpg"></div>
@@ -203,8 +203,9 @@
 		
 		<table class="ui-body-d ui-shadow table-stripe ui-responsive" id="ff_rpt_activity"  data-role="table" data-theme="d"  data-mode="display:none" style="cell-spacing:0px;">
                     <tr style="background-color:#FFFFFF; font-size:12px;">
-                      <td style="width:20%; text-align:center" >Report Date</td>					  
-                      <td style="width:60%" >Indicator</td>
+					  <td style="width:10%;" >Sl No</td>
+                      <td style="width:20%;" >Report Date</td>					  
+                      <td style="width:50%" >Indicator</td>
                       <td style="width:20%" >Population</td>
                     </tr>
                     
@@ -317,7 +318,7 @@
     </div>
     <div data-role="content">
        <!-- <div id="cboIdDiv"></div>-->
-	   <div class="activities" style="background-color:#E6E6E6; font-weight:bold; word-wrap: break-word; box-shadow:0px 0px 5px; padding:10px 10px; border-radius:5px;"></div>
+	   <div class="activities" style="background-color:#E6E6E6; font-weight:bold; word-wrap: break-word; box-shadow:0px 0px 5px; padding:10px 10px; border-radius:5px; margin-bottom:10px;"></div>
 	   
 		<ul data-role="listview" data-inset="true" data-theme="d">
             <li class="ui-field-contain" style="background-color:#F2F2F2; font-weight:bold;">
@@ -339,7 +340,7 @@
             </li>
         </ul>
 		<ul data-role="listview" data-inset="true" data-theme="d" id="achCluster">
-            <li class="ui-field-contain" style="background-color:#F2F2F2; font-weight:bold;">Cluster</li>
+            <li class="ui-field-contain" style="background-color:#F2F2F2; font-weight:bold;">Cluster<sup class="reqField">*</sup></li>
 			<li class="ui-field-contain">
 				<select name="achClusterID" id="achClusterID" data-native-menu="false">
 						<option value="">Cluster</option>
@@ -358,22 +359,22 @@
         <ul data-role="listview" data-inset="true" data-theme="d" id="achHhID">
             <li class="ui-field-contain hh_or_wp_id" style="background-color:#F2F2F2; font-weight:bold;"></li>
 			<li class="ui-field-contain">
-                <input name="achID" id="achID" placeholder="" value="" type="number" >
+                <input name="achID" id="achID" placeholder="" value="" type="number" min="1" max="999" >
             </li>
         </ul>
 		
-		<ul data-role="listview" data-inset="true" id="handwash_event">
+		<!--<ul data-role="listview" data-inset="true" id="handwash_event">
                 <li style="background-color:#F2F2F2; font-weight:bold;">Event</li>
                 <li class="ui-field-contain">
                     <fieldset data-role="controlgroup" data-type="horizontal">
-                        <input type="radio" name="hnd_event" width="200px" id="hnd_1" value="1">
+                        <input type="radio" name="hnd_event" width="200px" id="hnd_1" value="1" >
                         <label for="hnd_1">One</label>
                         <input type="radio" name="hnd_event" width="50%" id="hnd_2" value="2">
                         <label for="hnd_2">Two</label>						
                     </fieldset>
                 </li>
                 
-            </ul>
+            </ul>-->
                 
                 
          <table class="ui-body-d ui-shadow table-stripe ui-responsive"  data-role="table" data-theme="d"  data-mode="display:none" style="cell-spacing:0px;">
@@ -438,7 +439,7 @@
                         <td ><strong>Water Point Details</strong></td>
                   </tr>
 				  <tr>
-                        <td width="100%" style="vertical-align:middle;">Water Point Technology
+                        <td width="100%" style="vertical-align:middle;">Water Point Technology<sup class="reqField">*</sup>
 							<select name="wp_tech" id="wp_tech" data-native-menu="false">
 								 <option value="">Technology</option>						
 								 <option value="Deep Hand Tube-well">Deep Hand Tube-well</option>
@@ -449,7 +450,7 @@
 						</td>                        
                     </tr>
                     <tr>
-                        <td width="100%" colspan="3" style="vertical-align:middle;">Date of Completion							
+                        <td width="100%" colspan="3" style="vertical-align:middle;">Date of Completion<sup class="reqField">*</sup>							
 							<input type="date" name="wp_conp_date" id="wp_conp_date" data-role="date">
 										
 						</td>
@@ -464,7 +465,7 @@
                         <td colspan="2"><strong>Facility Count</strong></td>
                   </tr>
 				  <tr>
-                        <td width="100%" style="vertical-align:middle;" colspan="2"> Type of Latrine
+                        <td width="100%" style="vertical-align:middle;" colspan="2"> Type of Latrine<sup class="reqField">*</sup>
 							<select name="latType" id="latType" data-native-menu="false" onchange="totalHH();">
 								 <option value="">Latrine Type</option>
 								 <option value="Basic">Basic</option>						
@@ -479,7 +480,7 @@
                     </tr>
                   
                     <tr>
-                        <td width="100%" style="vertical-align:middle;" colspan="2">Completion Date							
+                        <td width="100%" style="vertical-align:middle;" colspan="2">Completion Date<sup class="reqField">*</sup>							
 							<input type="date" name="san_conp_date" id="san_conp_date" data-role="date">
 						</td>                        
                     </tr>						
@@ -545,6 +546,7 @@
         <!--<div id="checkLocationAch" style="color:#FF0000;"></div>-->
         <br/><br/>
         <a data-role="button" id="btn_ach_save" onClick="achiveDataSave();" class="ui-btn" >Save</a>
+		<br/>
         <a data-role="button" id="btn_ach_submit" onClick="achiveDataSubmit();" class="ui-btn"  >Submit</a>
 		
         
@@ -560,10 +562,10 @@
 
 			
 <!-- ---------plan list water quality page----------------------------- -->
-<div data-role="page" id="planListWq" >
+<!--<div data-role="page" id="planListWq" >
     <div data-theme="d" data-role="header" data-position="fixed" >
     <a data-role="button" onClick="waterAidClick();" data-icon="bullets" data-iconpos="left" class="ui-btn ui-shadow ui-corner-all ui-icon-bullets " ><img src="wateraid-logo-small.jpg"></a>
-        <!--<a data-role="button" data-rel="back"  data-icon="arrow-l" data-iconpos="left" class="ui-btn-right" data-transition="slide">Back</a>-->
+        <!--<a data-role="button" data-rel="back"  data-icon="arrow-l" data-iconpos="left" class="ui-btn-right" data-transition="slide">Back</a>
         <h3>Select Indicator</h3>
     </div>
     <div data-role="content">
@@ -574,7 +576,7 @@
     </div>
 
 <div data-theme="d" data-role="footer" data-position="fixed" style="font-size:12px;background-color:#CCC;" align="center" >m-Reporting</div>
-</div>
+</div>-->
 
 
 
