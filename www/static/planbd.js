@@ -46,7 +46,7 @@ function onErrorWq(error) {
 var apipath="http://e2.businesssolutionapps.com/planbd/syncmobile_150405/";
 
 //--- local
-//var apipath="http://127.0.0.1:8000/planbd/syncmobile_150308/";
+//var apipath="http://127.0.0.1:8000/planbd/syncmobile_150405/";
 
 
 var planFlag=0;
@@ -587,17 +587,19 @@ function achivementDataPSupport(){
 				}else{
 					/*if (isNaN(ach_id)==true){
 						$(".errorChk").text("HH ID/ Water point ID is Number and max three digit ");
+					}else{
+						}*/	
+						
+					if (ach_id.toString().length>3){							
+						$(".errorChk").text("HH ID/ Water point ID is Number and maximum 3 digit.");
 					}else{						
-						if (ach_id.toString().length>3){							
-							$(".errorChk").text("HH ID/ Water point ID maximum three digit ");
-						}else{						
-							if (ach_id.toString().length==1){
-								ach_id='00'+ach_id
-							}else if (ach_id.toString().length==2){
-								ach_id='0'+ach_id
-								}
-						   }
-						}*/
+						if (ach_id.toString().length==1){
+							ach_id='00'+ach_id
+						}else if (ach_id.toString().length==2){
+							ach_id='0'+ach_id
+							}
+					   
+						
 					
 					if (achPlanSector=="Sanitation" && latType==""){
 						$(".errorChk").text("Required Latrine Type");						
@@ -681,8 +683,9 @@ function achivementDataPSupport(){
 							 }//technology
 					  }// chk completion date
 					}//lat completion date						
-				}//lat type					
-			}//chk length
+				}//lat type	
+			  }//chk hh ID / WP ID length
+			}//chk hhID/ wp ID
 		  }//cluster
 		}
 	}
@@ -1319,6 +1322,8 @@ function ffReport(){
 						ach_array=ach_list_array[i].split("fdfd");
 						
 						$('#ff_rpt_activity').append('<tr class="plan_tr" style="font-size:11px;"><td >'+ach_array[0]+'</td><td>'+ach_array[1]+'</td><td>'+ach_array[2]+'</td><td>'+ach_array[3]+'</td></tr>');
+						
+						//$('#ff_rpt_activity').append('<tr class="plan_tr" style="font-size:11px;"><td >'+ach_array[0]+'</td><td>'+ach_array[1]+'</td><td>'+ach_array[2]+'</td><td>'+ach_array[3]+'</td><td>'+ach_array[4]+'</td></tr>');
 						
 					}
 			

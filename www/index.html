@@ -206,7 +206,8 @@
 					  <td style="width:10%;" >Sl No</td>
                       <td style="width:20%;" >Report Date</td>					  
                       <td style="width:50%" >Indicator</td>
-                      <td style="width:20%" >Population</td>
+                      <td style="width:10%" >Population</td>
+					  <!--<td style="width:10%" >Status</td>-->
                     </tr>
                     
 		</table>		
@@ -359,7 +360,7 @@
         <ul data-role="listview" data-inset="true" data-theme="d" id="achHhID">
             <li class="ui-field-contain hh_or_wp_id" style="background-color:#F2F2F2; font-weight:bold;"></li>
 			<li class="ui-field-contain">
-                <input name="achID" id="achID" placeholder="" value="" type="number" min="1" max="999" >
+                <input name="achID" id="achID" placeholder="" value="" type="number" >
             </li>
         </ul>
 		
@@ -416,7 +417,7 @@
                         <td width="5" align="left">&nbsp;</td>
                     </tr>
 					<tr >
-                        <td width="70%" style="vertical-align:middle;">Total Population</td>
+                        <td width="70%" style="vertical-align:middle;">Total Population<sup class="reqField">*</sup></td>
                         <td width="30%"><input name="population" id="population"  placeholder="" value="" type="number" readonly="readonly" style="background-color:#EEEEEE;"></td>
                         <td width="5" align="left"></td>
                     </tr>
