@@ -400,7 +400,7 @@ function achivementclick(){
 	
 //------------------------------domain list 
 function achDataNext(){	
-	
+		
 	if($("#planlistDiv").find("input[name='activity_select']:checked").length==0){
 		$(".errorChk").text("Required Plan");
 	}else{
@@ -419,6 +419,7 @@ function achDataNext(){
 		if (achPlanSector=="Handwash"){
 			$("#handwash_event").show();			
 			}
+			
 		if (achPlanSector=="Water"){
 			$("#tbl_water_point").show();
 			$("#achCluster").show();
@@ -426,12 +427,20 @@ function achDataNext(){
 			$("#latType").val("");
 			$(".hh_or_wp_id").html("Water Point ID<sup class='reqField'>*</sup>");
 			}
-		if (achPlanSector=="Sanitation"){
+			
+		if (achPlanSector=="Sanitation" || achPlanSector=="SanitationCommunity"){
 			$("#achCluster").show();
 			$("#achHhID").show();
 			$("#tbl_sanitation").show();
-			$(".hh_or_wp_id").html("HH ID<sup class='reqField'>*</sup>");
-			
+			$(".hh_or_wp_id").html("HH ID<sup class='reqField'>*</sup>");			
+			}
+		
+		if (achPlanSector=="SanitationCommunity"){
+			$("#latType").val("Shared");			
+			$(".latTypeD" ).attr("disabled",true);
+			$("#sharedLatHH").show();
+		}else{
+			$(".latTypeD" ).attr("disabled",false);			
 			}
 		
 		
@@ -449,6 +458,7 @@ function achDataNext(){
 		//$(location).attr('href',url);
 	}
 }
+
 
 //-----------------------------achivement data people support
 function achivementDataPSupport(){
@@ -554,6 +564,13 @@ function achivementDataPSupport(){
 			dapFemale=0;
 			}
 	
+	if(population==''){
+		population=0;
+		}
+	
+	if (household==''){
+		household=0;
+		}
 	
 	/*if(poorA==''){
 			poorA=0;
@@ -591,7 +608,7 @@ function achivementDataPSupport(){
 						}*/	
 						
 					if (ach_id.toString().length>3){							
-						$(".errorChk").text("HH ID/ Water point ID is Number and maximum 3 digit.");
+						$(".errorChk").text("HH ID/ Water point ID is Number and maximum 3 digit ");
 					}else{						
 						if (ach_id.toString().length==1){
 							ach_id='00'+ach_id
@@ -631,52 +648,61 @@ function achivementDataPSupport(){
 												$(".errorChk").text("Required Population ");
 											}else if (achPlanSector=="Sanitation" && population>15){
 												$(".errorChk").text("Maximum Population 15");
+											}else if (achPlanSector=="SanitationCommunity" && population>80){
+												$(".errorChk").text("Maximum Population 80");
 											}else{
-												achWord=ach_word
-																	
-												achCluster=ach_cluster
 												
-												//hand wash
-												achHndEvent=hnd_event
+												if (latType=="Shared" && household<=0 ){
+													$(".errorChk").text("Required Household");
+												}else if (achPlanSector=="SanitationCommunity" && household>20){
+													$(".errorChk").text("Household maximum 20");
+												}else{												
 												
-												//hh id
-												achID=ach_id
-												//achCBOid=cbo_id
-												
-												achPopulation=population
-												achHousehold=household
-												achMale=male
-												achFemale=female
-												achGirlsUnder=girlsUnder
-												achBoysUnder=boysUnder
-												achGirls=girls
-												achBoys=boys
-												achDapMale=dapMale
-												achDapFemale=dapFemale
-												achPoorA=poorA
-												achPoorB=poorB
-												achPoorC=0
-												achPoorEx=poorEx
-												achEthMale=0
-												achEthFemale=ethFemale
-												
-															
-												achLatType=latType
-												achComDate=sanCompDate
-												
-												achWpTech=wpTechnology;
-												achWpComDate=WpCompDate;
-												
-												var ach_plan_id=$("input[name='activity_select']:checked").val();
-												//alert(ach_plan_id);
-												
-												$(".errorChk").text("");
-												
-												
-												var url="#inPhoto";
-												$.mobile.navigate(url);
-												//$(location).attr('href',url);
+													achWord=ach_word
+																		
+													achCluster=ach_cluster
 													
+													//hand wash
+													achHndEvent=hnd_event
+													
+													//hh id
+													achID=ach_id
+													//achCBOid=cbo_id
+													
+													achPopulation=population
+													achHousehold=household
+													achMale=male
+													achFemale=female
+													achGirlsUnder=girlsUnder
+													achBoysUnder=boysUnder
+													achGirls=girls
+													achBoys=boys
+													achDapMale=dapMale
+													achDapFemale=dapFemale
+													achPoorA=poorA
+													achPoorB=poorB
+													achPoorC=0
+													achPoorEx=poorEx
+													achEthMale=0
+													achEthFemale=ethFemale
+													
+																
+													achLatType=latType
+													achComDate=sanCompDate
+													
+													achWpTech=wpTechnology;
+													achWpComDate=WpCompDate;
+													
+													var ach_plan_id=$("input[name='activity_select']:checked").val();
+													//alert(ach_plan_id);
+													
+													$(".errorChk").text("");
+													
+													
+													var url="#inPhoto";
+													$.mobile.navigate(url);
+													//$(location).attr('href',url);
+												}//chk hh
 											}//population
 										}//wp date chk
 									}// wp completion date
