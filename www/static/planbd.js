@@ -426,13 +426,16 @@ function achDataNext(){
 			$("#achHhID").show();
 			$("#latType").val("");
 			$(".hh_or_wp_id").html("Water Point ID<sup class='reqField'>*</sup>");
-			}
-			
-		if (achPlanSector=="Sanitation" || achPlanSector=="SanitationCommunity"){
+		}else if (achPlanSector=="Sanitation"){
 			$("#achCluster").show();
 			$("#achHhID").show();
 			$("#tbl_sanitation").show();
 			$(".hh_or_wp_id").html("HH ID<sup class='reqField'>*</sup>");			
+		}else if(achPlanSector=="SanitationCommunity"){
+			$("#achCluster").show();
+			$("#achHhID").show();
+			$("#tbl_sanitation").show();
+			$(".hh_or_wp_id").html("Sanitation Point ID<sup class='reqField'>*</sup>");			
 			}
 		
 		if (achPlanSector=="SanitationCommunity"){
@@ -615,8 +618,7 @@ function achivementDataPSupport(){
 						}else if (ach_id.toString().length==2){
 							ach_id='0'+ach_id
 							}
-					   
-						
+					 	
 					
 					if (achPlanSector=="Sanitation" && latType==""){
 						$(".errorChk").text("Required Latrine Type");						
@@ -882,7 +884,7 @@ function achiveDataSave(){
 								
 								}
 						}else{				
-							if (achiveSavArray.length >= 10){
+							if (achiveSavArray.length >= 30){
 								addFlag=false;					
 							}else{
 								localStorage.ach_save=achivementStr+'rdrd'+achivementSave
@@ -892,7 +894,7 @@ function achiveDataSave(){
 					}
 					
 					if (addFlag==false){
-						$(".errorChk").text("Maximum 10 records allowed to be saved for review");
+						$(".errorChk").text("Maximum 30 records allowed to be saved for review");
 						$("#btn_ach_save").show();
 					}else{
 						achWord='';
@@ -1321,7 +1323,8 @@ function syncDataAch(){
 							$(".errorChk").text('Already Exists');									
 							$("#btn_ach_submit").show();
 						}else{
-							$(".errorChk").text('Try again after 5 minutes');																		
+							$(".errorChk").text('Unauthorized Access');
+							//$(".errorChk").text('Try again after 5 minutes');																		
 							$("#btn_ach_submit").show();
 							}
 							
