@@ -43,21 +43,18 @@ function onErrorWq(error) {
    $(".errorChk").html("Failed to Confirmed Location.");
 }
 //---- online 
-var apipath="http://e2.businesssolutionapps.com/planbd/syncmobile_150405/";
+var apipath="http://e2.businesssolutionapps.com/planbd/syncmobile_150803/";
 
 //--- local
-//var apipath="http://127.0.0.1:8000/planbd/syncmobile_150405/";
+//var apipath="http://127.0.0.1:8000/planbd/syncmobile_150803/";
 
 
 var planFlag=0;
 var cboFlag=0;
 var locationFlag=0;
 
-var achPlanSector='';
-
 var achWord='';
 var achCluster='';
-
 var achHndEvent='';
 	
 var startDt='';
@@ -83,10 +80,6 @@ var achEthFemale='';
 
 var achLatType='';
 var achComDate='';
-
-var achWpTech='';
-var achWpComDate='';
-
 
 var achServiceRecpt='';
 var achPhoto='';
@@ -151,7 +144,7 @@ $(function(){
 							$('#planlistDiv').append(localStorage.plan_list).trigger('create');
 						}
 						
-						/*if (cboFlag==0){
+						if (cboFlag==0){
 							$("#cboIdDiv").html(localStorage.cbo_list);	
 							cboFlag=1;
 						}else{
@@ -165,16 +158,16 @@ $(function(){
 						}else{
 							$('#serResDiv').empty();
 							$('#serResDiv').append(localStorage.ser_res_list).trigger('create');
-						}*/
+						}
 												
 						/*$("#planlistDiv").html(localStorage.plan_list);					
 						$("#cboIdDiv").html(localStorage.cbo_list);
 						$("#serResDiv").html(localStorage.ser_res_list);*/
 						
-						/*$("#planWqlistDiv").html(localStorage.plan_wq);
+						$("#planWqlistDiv").html(localStorage.plan_wq);
 						$("#wQCboIdDiv").html(localStorage.cbo_id_wq);
 						$("#providedByDiv").html(localStorage.provided_by);
-						$("#TestTypeDiv").html(localStorage.test_type_wq);*/
+						$("#TestTypeDiv").html(localStorage.test_type_wq);
 											
 						/*$('.planlistDiv').empty();
 						$('.planlistDiv').append(localStorage.plan_list).trigger('create');*/
@@ -219,16 +212,15 @@ function waterAidClick(){
 	
 $(document).ready(function(){	
 	$("#planlistDiv").html(localStorage.plan_list);	
-	/*$("#cboIdDiv").html(localStorage.cbo_list);					   
+	$("#cboIdDiv").html(localStorage.cbo_list);					   
 	$("#serResDiv").html(localStorage.ser_res_list);
 	
 	$("#planWqlistDiv").html(localStorage.plan_wq);
 	$("#wQCboIdDiv").html(localStorage.cbo_id_wq);
 	//$("#reviewList").html(localStorage.reviewDataDiv);
-	$("#providedByDiv").html(localStorage.provided_by);*/
+	$("#providedByDiv").html(localStorage.provided_by);
 	
 	$(".errorChk").text("");
-	$(".activities").text("");
 	
 	$("#achCluster").hide();
 	$("#achHhID").hide();	
@@ -237,15 +229,14 @@ $(document).ready(function(){
 	$("#tbl_sanitation").hide();
 	
 	$("#handwash_event").hide();
-	$("#sharedLatHH").hide();
 //-------------------------------date format
 
 //$( "#fstDate" ).datepicker( "option", "dateFormat", "dd/mm/yyyy");
 	
 //------------------------safe water -------------					   
-	//$(".dateErr").text("");
+	$(".dateErr").text("");
 //-------------------------------------/portable
-	/*$("#non_potbl_res").hide();	
+	$("#non_potbl_res").hide();	
 	
 	$("#st_non_potable").click(function(){					
 		$("#non_potbl_res").show();
@@ -254,10 +245,10 @@ $(document).ready(function(){
 	$("#st_potable").click(function(){					
 		$("#non_potbl_res").hide();
 		
-	});*/
+	});
 	
 	//-------------------------------------/all test complete
-	/*	$("#all_test_n_res").hide();		
+		$("#all_test_n_res").hide();		
 	
 		$("#all_test_y").click(function(){					
 		$("#all_test_n_res").hide();
@@ -267,10 +258,10 @@ $(document).ready(function(){
 	$("#all_test_n").click(function(){					
 		$("#all_test_n_res").show();
 		
-	});*/
+	});
 	
 	//-------------------------------------/manage comm trainee
-	/*	$("#m_comm_ori").hide();		
+		$("#m_comm_ori").hide();		
 	
 	$("#m_comm_ext_y").click(function(){					
 		$("#m_comm_ori").show();
@@ -279,10 +270,10 @@ $(document).ready(function(){
 	
 	$("#m_comm_ext_n").click(function(){					
 		$("#m_comm_ori").hide();
-	});*/
+	});
 
 	//--------------------------check urban acSectorNext
-/*		$("#pipe_w_sup").hide();		
+		$("#pipe_w_sup").hide();		
 	
 	$("#piped_w_conn_y").click(function(){					
 		$("#pipe_w_sup").show();
@@ -291,11 +282,11 @@ $(document).ready(function(){
 	
 	$("#piped_w_conn_n").click(function(){					
 		$("#pipe_w_sup").hide();
-	});*/
+	});
 	/*$("#pipe_conc").hide();
 	$("#pipe_w_sup").hide();*/
 	
-/*	$("#tech_ttc").hide();
+	$("#tech_ttc").hide();
 	$("#tech_sl").hide();
 	$("#tech_as").hide();
 	$("#tech_fe").hide();
@@ -310,7 +301,7 @@ $(document).ready(function(){
 	$("#tech_nitrate").hide();
 	$("#tech_zinc").hide();
 	$("#tech_condvity").hide();
-	$("#tech_fluoride").hide();*/
+	$("#tech_fluoride").hide();
 
 	
 });
@@ -336,7 +327,7 @@ function achivementclick(){
 			$('#planlistDiv').append(localStorage.plan_list).trigger('create');
 		}
 		
-		/*if (cboFlag==0){
+		if (cboFlag==0){
 			$("#cboIdDiv").html(localStorage.cbo_list);	
 			cboFlag=1;
 		}else{
@@ -350,7 +341,7 @@ function achivementclick(){
 		}else{
 			$('#serResDiv').empty();
 			$('#serResDiv').append(localStorage.ser_res_list).trigger('create');
-		}*/
+		}
 		
 		/*$("#planlistDiv").html(localStorage.plan_list);	
 		$("#cboIdDiv").html(localStorage.cbo_list);					   
@@ -379,16 +370,10 @@ function achivementclick(){
 		$("#ethMale").val("");
 		$("#ethFemale").val("");	
 		$("#serRecpent").val("");	
-		$("#achPhoto").val("");
-		
-		$("#latType").val("");
-		$("#san_conp_date").val("");	
-		$("#wp_tech").val("");
-		$("#wp_conp_date").val("");
+		$("#achPhoto").val("");				
 		
 		reviewAchDisplayFlag==false;
 		arrayId='';
-		
 		
 		
 		var url = "#planList";
@@ -400,50 +385,34 @@ function achivementclick(){
 	
 //------------------------------domain list 
 function achDataNext(){	
-		
+	
 	if($("#planlistDiv").find("input[name='activity_select']:checked").length==0){
 		$(".errorChk").text("Required Plan");
 	}else{
 		var ach_plan_id=$("input[name='activity_select']:checked").val();
 		
-		achPlanActivities=$("#achActivityName"+ach_plan_id).val();
+		var ach_plan_activities=$("#achActivityName"+ach_plan_id).val();
 		
-		 achPlanSector=$("#achActivitySector"+ach_plan_id).val();
+		var ach_plan_sector=$("#achActivitySector"+ach_plan_id).val();
 		
 		
 		achPlanId=ach_plan_id;
-		achPlanActivities=achPlanActivities;
+		achPlanActivities=ach_plan_activities;
 		
-		$(".activities").text(achPlanActivities);
-		
-		if (achPlanSector=="Handwash"){
+		if (ach_plan_sector=="Handwash"){
 			$("#handwash_event").show();			
 			}
-			
-		if (achPlanSector=="Water"){
+		if (ach_plan_sector=="Water"){
 			$("#tbl_water_point").show();
 			$("#achCluster").show();
 			$("#achHhID").show();
-			$("#latType").val("");
-			$(".hh_or_wp_id").html("Water Point ID<sup class='reqField'>*</sup>");
-		}else if (achPlanSector=="Sanitation"){
-			$("#achCluster").show();
-			$("#achHhID").show();
-			$("#tbl_sanitation").show();
-			$(".hh_or_wp_id").html("HH ID<sup class='reqField'>*</sup>");			
-		}else if(achPlanSector=="SanitationCommunity"){
-			$("#achCluster").show();
-			$("#achHhID").show();
-			$("#tbl_sanitation").show();
-			$(".hh_or_wp_id").html("Sanitation Point ID<sup class='reqField'>*</sup>");			
+			
 			}
-		
-		if (achPlanSector=="SanitationCommunity"){
-			$("#latType").val("Shared");			
-			$(".latTypeD" ).attr("disabled",true);
-			$("#sharedLatHH").show();
-		}else{
-			$(".latTypeD" ).attr("disabled",false);			
+		if (ach_plan_sector=="Sanitation"){
+			$("#achCluster").show();
+			$("#achHhID").show();
+			$("#tbl_sanitation").show();
+			
 			}
 		
 		
@@ -462,40 +431,27 @@ function achDataNext(){
 	}
 }
 
-
 //-----------------------------achivement data people support
 function achivementDataPSupport(){
-	$(".errorChk").text("");	
+	$(".errorChk").text("");
 	
-	var now = new Date();
-	var month=now.getUTCMonth()+1;
-	if (month<10){
-		month="0"+month
-		}
-	var day=now.getUTCDate();
-	if (day<10){
-		day="0"+day
-		}
 		
-	var year=now.getUTCFullYear();
-	
-	var currentDay = new Date(year+ "-" + month + "-" + day);
-	
-	
-			
 	var ach_word=$("#achWord").val();	
+		
+	//sanitation
+	var ach_cluster=$("#achClusterID").val();
 	
-	//sanitation/ water
-	var ach_cluster=$("#achClusterID").val();	
 	
 	// hh id
 	var ach_id=$("#achID").val();
-	
 	
 	//hand wash
 	var hnd_event=$("input[name='hnd_event']:checked").val();
 	
 		
+	
+	
+	
 	var population=$("#population").val();
 	var household=$("#household").val();
 	var male=$("#male").val();
@@ -509,71 +465,50 @@ function achivementDataPSupport(){
 	
 	
 	// for water quality test 
-	var ethFemale=$("#ethFemale").val();
-	var ethMale=$("#ethMale").val(); 
-	var poorA=$("#poorA").val();
+	var ethFemale=$("#ethFemale").val(); //water point technology
+	//var ethMale=$("#ethMale").val();  //Date of Completion
+	var poorA=$("#poorA").val(); //Local project implementation partner	
 		
-	var poorB=$("#poorB").val();
-	var poorC=$("#poorC").val();
-	var poorEx=$("#poorEx").val(); 
+	var poorB=$("#poorB").val(); //water Quality test type
+	//var poorC=$("#poorC").val(); //date of water quality test
+	var poorEx=$("#poorEx").val(); //test result
+	
+	//var achLatType='';
+//var achComDate='';
 	
 	//for sanitation 
-	var latType=$("#latType").val();	
-	var sanCompDate=$("#san_conp_date").val();	
-		
-		
+	var latType=$("#latType").val();
+	var sanCompDate=$("#san_conp_date").val();
 	
-	//water	
-	var wpTechnology=$("#wp_tech").val();
-	var WpCompDate=$("#wp_conp_date").val();
-		
 	
-	/*if(ach_cluster==''){
+	if(ach_cluster==''){
 		ach_cluster=0;
 		}
 	
 	if(ach_id==''){
 		ach_id=0;
-		}*/
+		}
 	
-	if(male==''){
-			male=0;
-			}
 	
-	if(female==''){
-			female=0;
-			}
-			
 	if(girlsUnder==''){
 			girlsUnder=0;
 			}
-			
 	if(boysUnder==''){
 			boysUnder=0;
-			}
-			
+			}	
 	if(girls==''){
 			girls=0;
 			}
-			
 	if(boys==''){
 			boys=0;
 			}
 	if(dapMale==''){
 			dapMale=0;
 			}
-			
 	if(dapFemale==''){
 			dapFemale=0;
 			}
 	
-	if(population==''){
-		population=0;
-		}
-	
-	if (household==''){
-		household=0;
-		}
 	
 	/*if(poorA==''){
 			poorA=0;
@@ -589,136 +524,65 @@ function achivementDataPSupport(){
 			}*/
 	
 	if (ach_word=="" ){		
-		$(".errorChk").text("Required Ward ");
-	}/*else if (female=="" ){
+		$(".errorChk").text("Required Word ");
+	}else if (female=="" ){
 		$(".errorChk").text("Required female ");
 	}else if (male=="" ){
 		$(".errorChk").text("Required Male ");
-	}else if (poorC=="" ){
+	}/*else if (poorC=="" ){
 		$(".errorChk").text("Required Poor C category ");
 	}else if (poorEx=="" ){
 		$(".errorChk").text("Required Poor D category ");
 	}*/else{
-			if (achPlanSector!="Handwash" && ach_cluster==""){
-				$(".errorChk").text("Required Cluster ");						
-			}else{
-				if (achPlanSector!="Handwash" && ach_id==""){
-					$(".errorChk").text("Required HH ID/ Water point ID");						
-				}else{
-					/*if (isNaN(ach_id)==true){
-						$(".errorChk").text("HH ID/ Water point ID is Number and max three digit ");
-					}else{
-						}*/	
+			var totalMF=eval(male)+eval(female)+eval(girlsUnder)+eval(boysUnder)+eval(girls)+eval(boys);
+			var population=eval(totalMF);
+			//var totalPoor=eval(poorA)+eval(poorB)+eval(poorC)+eval(poorEx);
+			// chk population
+			//alert(population);
+			
+			achWord=ach_word
+			
+			achCluster=ach_cluster
+			achHndEvent=hnd_event
+			
+			//hh id
+			achID=ach_id
+			//achCBOid=cbo_id
+			
+			achPopulation=population
+			achHousehold=household
+			achMale=male
+			achFemale=female
+			achGirlsUnder=girlsUnder
+			achBoysUnder=boysUnder
+			achGirls=girls
+			achBoys=boys
+			achDapMale=dapMale
+			achDapFemale=dapFemale
+			achPoorA=poorA
+			achPoorB=poorB
+			achPoorC=0
+			achPoorEx=poorEx
+			achEthMale=0
+			achEthFemale=ethFemale
+			
 						
-					if (ach_id.toString().length>3){							
-						$(".errorChk").text("HH ID/ Water point ID is Number and maximum 3 digit ");
-					}else{						
-						if (ach_id.toString().length==1){
-							ach_id='00'+ach_id
-						}else if (ach_id.toString().length==2){
-							ach_id='0'+ach_id
-							}
-					 	
-					
-					if (achPlanSector=="Sanitation" && latType==""){
-						$(".errorChk").text("Required Latrine Type");						
-					}else{
-						if (achPlanSector=="Sanitation" && sanCompDate==""){
-							$(".errorChk").text("Required Completion Date");						
-						}else{
-							var chkSanCompDate = new Date(sanCompDate);
-							if (chkSanCompDate>currentDay){
-								$(".errorChk").text("Required Completion Date Less Then Today");
-							}else{							
-								if (achPlanSector=="Water" && wpTechnology==""){
-									$(".errorChk").text("Required Technology");						
-								}else{
-									if (achPlanSector=="Water" && WpCompDate==""){
-										$(".errorChk").text("Required Water Point Completion Date");						
-									}else{
-										var chkWpCompDate=new Date(WpCompDate);
-										if (chkWpCompDate>currentDay){
-											$(".errorChk").text("Required Water Point Completion Date Less Then Today");
-										}else{
-											var totalMF=eval(male)+eval(female)+eval(girlsUnder)+eval(boysUnder)+eval(girls)+eval(boys);
-											var population=eval(totalMF);
-											//var totalPoor=eval(poorA)+eval(poorB)+eval(poorC)+eval(poorEx);
-											// chk population
-											//alert(population);
-											
-											if (population<=0){					
-												$(".errorChk").text("Required Population ");
-											}else if (achPlanSector=="Sanitation" && population>15){
-												$(".errorChk").text("Maximum Population 15");
-											}else if (achPlanSector=="SanitationCommunity" && population>80){
-												$(".errorChk").text("Maximum Population 80");
-											}else{
-												
-												if (latType=="Shared" && household<=0 ){
-													$(".errorChk").text("Required Household");
-												}else if (achPlanSector=="SanitationCommunity" && household>20){
-													$(".errorChk").text("Household maximum 20");
-												}else{												
-												
-													achWord=ach_word
-																		
-													achCluster=ach_cluster
-													
-													//hand wash
-													achHndEvent=hnd_event
-													
-													//hh id
-													achID=ach_id
-													//achCBOid=cbo_id
-													
-													achPopulation=population
-													achHousehold=household
-													achMale=male
-													achFemale=female
-													achGirlsUnder=girlsUnder
-													achBoysUnder=boysUnder
-													achGirls=girls
-													achBoys=boys
-													achDapMale=dapMale
-													achDapFemale=dapFemale
-													achPoorA=poorA
-													achPoorB=poorB
-													achPoorC=0
-													achPoorEx=poorEx
-													achEthMale=0
-													achEthFemale=ethFemale
-													
-																
-													achLatType=latType
-													achComDate=sanCompDate
-													
-													achWpTech=wpTechnology;
-													achWpComDate=WpCompDate;
-													
-													var ach_plan_id=$("input[name='activity_select']:checked").val();
-													//alert(ach_plan_id);
-													
-													$(".errorChk").text("");
-													
-													
-													var url="#inPhoto";
-													$.mobile.navigate(url);
-													//$(location).attr('href',url);
-												}//chk hh
-											}//population
-										}//wp date chk
-									}// wp completion date
-							 }//technology
-					  }// chk completion date
-					}//lat completion date						
-				}//lat type	
-			  }//chk hh ID / WP ID length
-			}//chk hhID/ wp ID
-		  }//cluster
+			achLatType=latType
+			achComDate=sanCompDate
+			
+			var ach_plan_id=$("input[name='activity_select']:checked").val();
+			//alert(ach_plan_id);
+			
+			$(".errorChk").text("");
+			
+			
+			var url="#inPhoto";
+			$.mobile.navigate(url);
+			//$(location).attr('href',url);
+			
 		}
 	}
-
-
+	
 //------------------ show population
 function totalPopulation(){
 	var male=$("#male").val();
@@ -752,17 +616,8 @@ function totalPopulation(){
 	$("#population").val(totalMF);
 	}
 
-
-function totalHH(){
-	var latType=$("#latType").val();
-	if(latType=="Shared"){
-		$("#sharedLatHH").show();
-	}else{
-		$("#sharedLatHH").hide();
-		}	
-	}
 //------------------ show Household
-/*function totalhousehold(){
+function totalhousehold(){
 	var poorA=$("#poorA").val();
 	
 	var poorB=$("#poorB").val();
@@ -785,10 +640,10 @@ function totalHH(){
 	var totalHH=eval(poorA)+eval(poorB)+eval(poorC)+eval(poorEx);
 	
 	$("#household").val(totalHH);
-	}*/
+	}
 
 //------------------achivement sector next 
-/*function serviceRecipentNext(){
+function serviceRecipentNext(){
 	var chk_service_r=$("#serRecpent").val();
 	
 	
@@ -806,7 +661,7 @@ function totalHH(){
 	$.mobile.navigate(url);
 	//$(location).attr('href',url);
 	
-}*/
+}
 
 	
 //-----------------------------planid,CBO ID, ID, Population, Household,male,Female,girls Under, boys Under,girls,boys,DAP male, DAP Female,Poor A,Poor B ,Poor C, Poor D, Ethnic Male, Ethnic Female, service Recepent, service recepent value
@@ -839,8 +694,8 @@ function achiveDataSave(){
 				$("#btn_ach_save").show();
 				$("#btn_ach_submit").show();
 			}else{
-						
-				achivementSave=achPlanId+'fdfd'+achCBOid+'fdfd'+achID+'fdfd'+achPopulation+'fdfd'+achHousehold+'fdfd'+achMale+'fdfd'+achFemale+'fdfd'+achGirlsUnder+'fdfd'+achBoysUnder+'fdfd'+achGirls+'fdfd'+achBoys+'fdfd'+achDapMale+'fdfd'+achDapFemale+'fdfd'+achPoorA+'fdfd'+achPoorB+'fdfd'+achPoorC+'fdfd'+achPoorEx+'fdfd'+achEthMale+'fdfd'+achEthFemale+'fdfd'+achServiceRecpt+'fdfd'+achPlanActivities+'fdfd'+achPhoto+'fdfd'+startDt+'fdfd'+latitude+'fdfd'+longitude+'fdfd'+achWord+'fdfd'+achHndEvent+'fdfd'+achCluster+'fdfd'+achLatType+'fdfd'+achComDate+'fdfd'+achWpTech+'fdfd'+achWpComDate
+												
+				achivementSave=achPlanId+'fdfd'+achCBOid+'fdfd'+achID+'fdfd'+achPopulation+'fdfd'+achHousehold+'fdfd'+achMale+'fdfd'+achFemale+'fdfd'+achGirlsUnder+'fdfd'+achBoysUnder+'fdfd'+achGirls+'fdfd'+achBoys+'fdfd'+achDapMale+'fdfd'+achDapFemale+'fdfd'+achPoorA+'fdfd'+achPoorB+'fdfd'+achPoorC+'fdfd'+achPoorEx+'fdfd'+achEthMale+'fdfd'+achEthFemale+'fdfd'+achServiceRecpt+'fdfd'+achPlanActivities+'fdfd'+achPhoto+'fdfd'+startDt+'fdfd'+latitude+'fdfd'+longitude+'fdfd'+achWord+'fdfd'+achHndEvent
 				
 				if (achPlanId==''){
 					$(".errorChk").text("New records not available");
@@ -884,7 +739,7 @@ function achiveDataSave(){
 								
 								}
 						}else{				
-							if (achiveSavArray.length >= 30){
+							if (achiveSavArray.length >= 10){
 								addFlag=false;					
 							}else{
 								localStorage.ach_save=achivementStr+'rdrd'+achivementSave
@@ -894,13 +749,9 @@ function achiveDataSave(){
 					}
 					
 					if (addFlag==false){
-						$(".errorChk").text("Maximum 30 records allowed to be saved for review");
+						$(".errorChk").text("Maximum 10 records allowed to be saved for review");
 						$("#btn_ach_save").show();
 					}else{
-						achWord='';
-						achCluster='';
-						achHndEvent='';
-					
 						achPlanId='';
 						achID='';
 						achCBOid='';
@@ -914,21 +765,14 @@ function achiveDataSave(){
 						achBoys='';
 						achDapMale='';
 						achDapFemale='';
-						//---------------not use
 						achPoorA='';
 						achPoorB='';
 						achPoorC='';
 						achPoorEx='';
 						achEthMale='';
-						achEthFemale='';			
+						achEthFemale='';
 						
 						achServiceRecpt='';
-						//--------------------------
-						achLatType='';
-						achComDate='';
-						
-						achWpTech='';
-						achWpComDate='';
 						
 						achPhoto='';
 						startDt='';
@@ -936,10 +780,10 @@ function achiveDataSave(){
 						latitude='';
 						longitude='';
 						
-						$("#achWord").val();
-						$("#achClusterID").val("");
-						$("#achID").val(""); //hhid
-						$("input:radio[name='hnd_event']" ).attr('checked','');
+						
+						
+						$("#achID").val("");
+						
 						$("#population").val("");
 						$("#household").val("");
 						$("#male").val("");
@@ -957,14 +801,6 @@ function achiveDataSave(){
 						$("#ethMale").val("");
 						$("#ethFemale").val("");
 						
-						//sanitation
-						$("#latType").val("");
-						$("#san_conp_date").val("");
-						
-						//water point
-						$("#wp_tech").val("");
-						$("#wp_conp_date").val("");
-	
 						$("#achPhoto").val("");
 						
 						$("#ach_lat").val("");
@@ -1080,10 +916,8 @@ function reviewAchiveData(){
 				$('#serResDiv').append(localStorage.ser_res_list).trigger('create');
 			}
 			
-			$("#achClusterID").val("");
 			$("#achID").val("");
-			$("input:radio[name='hnd_event']" ).attr('checked','');
-			
+	
 			$("#population").val("");
 			$("#household").val("");
 			$("#male").val("");
@@ -1100,14 +934,7 @@ function reviewAchiveData(){
 			$("#poorEx").val("");
 			$("#ethMale").val("");
 			$("#ethFemale").val("");	
-			$("#serRecpent").val("");
-			
-			$("#latType").val("");
-			$("#san_conp_date").val("");
-			
-			$("#wp_tech").val("");
-			$("#wp_conp_date").val("");
-						
+			$("#serRecpent").val("");	
 			$("#achPhoto").val("");				
 			
 			$("#ach_lat").val("");
@@ -1132,84 +959,71 @@ function reviewDataNext(){
 	reviewAchDisplayFlag=true;
 	arrayId=eval($("input[name='achReviewRad']:checked").val());
 	
-	if (arrayId ==undefined){							
-			$(".errorChk").text("Select a Record");			
-	}else{
-		
-		var achivementRevArray2=localStorage.ach_save.split('rdrd');
-		var achRevDetails=achivementRevArray2[arrayId];
-		
-		var achRevDetailsArray=achRevDetails.split('fdfd');
-		
-		//------------------
-		$( "input:radio[name='activity_select'][value='"+achRevDetailsArray[0]+"']" ).attr('checked','checked');
-		//$("#plan_select").val(achRevDetailsArray[0])
-		
-		
-		$("#cbo_combo").val(achRevDetailsArray[1]);
-		
-		$("#achID").val(achRevDetailsArray[2]);				
-		$("#population").val(achRevDetailsArray[3]);
-		$("#household").val(achRevDetailsArray[4]);
-		$("#male").val(achRevDetailsArray[5]);
-		$("#female").val(achRevDetailsArray[6]);
-		$("#girlsUnder").val(achRevDetailsArray[7]);
-		$("#boysUnder").val(achRevDetailsArray[8]);
-		$("#girls").val(achRevDetailsArray[9]);
-		$("#boys").val(achRevDetailsArray[10]);
-		$("#dapMale").val(achRevDetailsArray[11]);
-		$("#dapFemale").val(achRevDetailsArray[12]);
-		
-		var compt_date_array=achRevDetailsArray[17].split("-");
-		
-		$("#com_c_d").val(compt_date_array[2]);
-		$("#com_c_m").val(compt_date_array[1]);
-		$("#com_c_y").val(compt_date_array[0]);
-		
-		
-		var test_date_array=achRevDetailsArray[15].split("-");
-		
-		$("#test_c_d").val(test_date_array[2]);
-		$("#test_c_m").val(test_date_array[1]);
-		$("#test_c_y").val(test_date_array[0]);
-		
-		$("#poorA").val(achRevDetailsArray[13]);
-		$("#poorB").val(achRevDetailsArray[14]);
-		//$("#poorC").val(achRevDetailsArray[15]);
-		$("#poorEx").val(achRevDetailsArray[16]);
-		//$("#ethMale").val(achRevDetailsArray[17]);
-		$("#ethFemale").val(achRevDetailsArray[18]);
-		
-		$("#serRecpent").val(achRevDetailsArray[19]);
-		
-		
-		$("#achPhoto").val(achRevDetailsArray[21]);
-		
-		var achlat=$("#ach_lat").val(achRevDetailsArray[23]);
-		var achlong=$("#ach_long").val(achRevDetailsArray[24]);
-					
-		var image = document.getElementById('myImageA');
-		image.src = achRevDetailsArray[21];
-		imagePathA = achRevDetailsArray[21];
-		
-		startDt=achRevDetailsArray[22]
-		
-		$("#achWord").val(achRevDetailsArray[25]);
-		$( "input:radio[name='hnd_event'][value='"+achRevDetailsArray[26]+"']" ).attr('checked','checked');
-		
-		$("#achClusterID").val(achRevDetailsArray[27]);
-		$("#latType").val(achRevDetailsArray[28]);
-		$("#san_conp_date").val(achRevDetailsArray[29]);
-		
-		$("#wp_tech").val(achRevDetailsArray[30]);
-		$("#wp_conp_date").val(achRevDetailsArray[31]);
-		
+	var achivementRevArray2=localStorage.ach_save.split('rdrd');
+	var achRevDetails=achivementRevArray2[arrayId];
 	
-		$(".errorChk").text("");
-		var url = "#planList";
-		//$(location).attr('href',url);
-		$.mobile.navigate(url);
-	}
+	var achRevDetailsArray=achRevDetails.split('fdfd');
+	
+	//------------------
+	$( "input:radio[name='activity_select'][value='"+achRevDetailsArray[0]+"']" ).attr('checked','checked');
+	//$("#plan_select").val(achRevDetailsArray[0])
+	
+	
+	$("#cbo_combo").val(achRevDetailsArray[1]);
+	
+	$("#achID").val(achRevDetailsArray[2]);				
+	$("#population").val(achRevDetailsArray[3]);
+	$("#household").val(achRevDetailsArray[4]);
+	$("#male").val(achRevDetailsArray[5]);
+	$("#female").val(achRevDetailsArray[6]);
+	$("#girlsUnder").val(achRevDetailsArray[7]);
+	$("#boysUnder").val(achRevDetailsArray[8]);
+	$("#girls").val(achRevDetailsArray[9]);
+	$("#boys").val(achRevDetailsArray[10]);
+	$("#dapMale").val(achRevDetailsArray[11]);
+	$("#dapFemale").val(achRevDetailsArray[12]);
+	
+	var compt_date_array=achRevDetailsArray[17].split("-");
+	
+	$("#com_c_d").val(compt_date_array[2]);
+	$("#com_c_m").val(compt_date_array[1]);
+	$("#com_c_y").val(compt_date_array[0]);
+	
+	
+	var test_date_array=achRevDetailsArray[15].split("-");
+	
+	$("#test_c_d").val(test_date_array[2]);
+	$("#test_c_m").val(test_date_array[1]);
+	$("#test_c_y").val(test_date_array[0]);
+	
+	$("#poorA").val(achRevDetailsArray[13]);
+	$("#poorB").val(achRevDetailsArray[14]);
+	//$("#poorC").val(achRevDetailsArray[15]);
+	$("#poorEx").val(achRevDetailsArray[16]);
+	//$("#ethMale").val(achRevDetailsArray[17]);
+	$("#ethFemale").val(achRevDetailsArray[18]);
+	
+	$("#serRecpent").val(achRevDetailsArray[19]);
+	
+	$("#achPhoto").val(achRevDetailsArray[21]);
+	
+	var achlat=$("#ach_lat").val(achRevDetailsArray[23]);
+	var achlong=$("#ach_long").val(achRevDetailsArray[24]);
+				
+    var image = document.getElementById('myImageA');
+    image.src = achRevDetailsArray[21];
+    imagePathA = achRevDetailsArray[21];
+	
+	startDt=achRevDetailsArray[22]
+	
+	$("#achWord").val(achRevDetailsArray[25]);
+	$( "input:radio[name='hnd_event'][value='"+achRevDetailsArray[26]+"']" ).attr('checked','checked');
+	
+
+	$(".errorChk").text("");
+	var url = "#planList";
+	//$(location).attr('href',url);
+	$.mobile.navigate(url);
 }
 
 
@@ -1248,7 +1062,7 @@ function achiveDataSubmit(){
 				}else{
 					//imagePathA="test"
 					if (imagePathA!=""){
-						$(".errorChk").text("Syncing photo..");
+						$(".errorChk").text("Syncing photo..")
 						imageName = localStorage.mobile_no+"_"+get_time+".jpg";						
 						uploadPhotoAch(imagePathA, imageName);
 					}
@@ -1259,10 +1073,11 @@ function achiveDataSubmit(){
 	}
 
 function syncDataAch(){	
-			
+		//alert(apipath+'submitAchiveData?cid=PLANBD&mobile_no='+localStorage.mobile_no+'&syncCode='+localStorage.sync_code+'&ach_plan_id='+achPlanId+'&ach_cbo_id=0&ach_id='+achID+'&ach_population='+achPopulation+'&ach_household='+achHousehold+'&ach_male='+achMale+'&ach_female='+achFemale+'&ach_girlsUnder='+achGirlsUnder+'&ach_boysUnder='+achBoysUnder+'&ach_girls='+achGirls+'&ach_boys='+achBoys+'&ach_dapMale='+achDapMale+'&ach_dapFemale='+achDapFemale+'&ach_poorA='+achPoorA+'&ach_poorB='+achPoorB+'&ach_poorC='+achPoorC+'&ach_poorEx='+achPoorEx+'&ach_ethMale='+achEthMale+'&ach_ethFemale='+achEthFemale+'&ach_service_recpient=&latitude='+latitude+'&longitude='+longitude+'&ach_photo='+imageName+'&ach_startDt='+startDt+'&ach_word='+achWord+'&ach_event='+achHndEvent+'&ach_cluster'+achCluster+'&ach_lat_type='+achLatType+'&ach_lat_comp_date='+achComDate);
+		
 			$.ajax({
 					type: 'POST',
-					url:apipath+'submitAchiveData?cid=PLANBD&mobile_no='+localStorage.mobile_no+'&syncCode='+localStorage.sync_code+'&ach_plan_id='+achPlanId+'&ach_cbo_id=0&ach_id='+achID+'&ach_population='+achPopulation+'&ach_household='+achHousehold+'&ach_male='+achMale+'&ach_female='+achFemale+'&ach_girlsUnder='+achGirlsUnder+'&ach_boysUnder='+achBoysUnder+'&ach_girls='+achGirls+'&ach_boys='+achBoys+'&ach_dapMale='+achDapMale+'&ach_dapFemale='+achDapFemale+'&ach_poorA='+achPoorA+'&ach_poorB='+achPoorB+'&ach_poorC='+achPoorC+'&ach_poorEx='+achPoorEx+'&ach_ethMale='+achEthMale+'&ach_ethFemale='+achEthFemale+'&ach_service_recpient=&latitude='+latitude+'&longitude='+longitude+'&ach_photo='+imageName+'&ach_startDt='+startDt+'&ach_word='+achWord+'&ach_event='+achHndEvent+'&ach_cluster='+achCluster+'&ach_lat_type='+achLatType+'&ach_lat_comp_date='+achComDate+'&ach_wp_tech='+achWpTech+'&ach_wp_comp_date='+achWpComDate,
+					url:apipath+'submitAchiveData?cid=PLANBD&mobile_no='+localStorage.mobile_no+'&syncCode='+localStorage.sync_code+'&ach_plan_id='+achPlanId+'&ach_cbo_id=0&ach_id='+achID+'&ach_population='+achPopulation+'&ach_household='+achHousehold+'&ach_male='+achMale+'&ach_female='+achFemale+'&ach_girlsUnder='+achGirlsUnder+'&ach_boysUnder='+achBoysUnder+'&ach_girls='+achGirls+'&ach_boys='+achBoys+'&ach_dapMale='+achDapMale+'&ach_dapFemale='+achDapFemale+'&ach_poorA='+achPoorA+'&ach_poorB='+achPoorB+'&ach_poorC='+achPoorC+'&ach_poorEx='+achPoorEx+'&ach_ethMale='+achEthMale+'&ach_ethFemale='+achEthFemale+'&ach_service_recpient=&latitude='+latitude+'&longitude='+longitude+'&ach_photo='+imageName+'&ach_startDt='+startDt+'&ach_word='+achWord+'&ach_event='+achHndEvent+'&ach_cluster='+achCluster+'&ach_lat_type='+achLatType+'&ach_lat_comp_date='+achComDate,
 					   
 					   success: function(result) {
 							//alert(result);
@@ -1294,7 +1109,8 @@ function syncDataAch(){
 									
 							}
 							//----------------
-							
+							$("#ach_lat").val("");
+							$("#ach_long").val("");
 							$( "input:radio[name='plan_select'][value='"+achPlanId+"']" ).attr('checked','');
 							$("#cbo_combo").val("");
 							
@@ -1306,25 +1122,12 @@ function syncDataAch(){
 							$("#btn_ach_lat_long").hide();
 							//$("#achlocation").val('Successfully Submited');
 							
-						}else if(result=='Failed3'){
-							//$(".errorChk").text('Failed to Submit');
-							$(".errorChk").text('Invalid Ward');									
-							$("#btn_ach_submit").show();
 						}else if(result=='Failed4'){
 							//$(".errorChk").text('Failed to Submit');
-							$(".errorChk").text('Invalid Cluster');										
-							$("#btn_ach_submit").show();
-						}else if(result=='Failed5'){
-							//$(".errorChk").text('Failed to Submit');
-							$(".errorChk").text('Event Already Exists');															
-							$("#btn_ach_submit").show();
-						}else if(result=='Failed6'){
-							//$(".errorChk").text('Failed to Submit');
-							$(".errorChk").text('Already Exists');									
+							$(".errorChk").text('Achievement ID Already Exists');									
 							$("#btn_ach_submit").show();
 						}else{
-							$(".errorChk").text('Unauthorized Access');
-							//$(".errorChk").text('Try again after 5 minutes');																		
+							$(".errorChk").text('Try again after 5 minutes');																		
 							$("#btn_ach_submit").show();
 							}
 							
@@ -1332,45 +1135,6 @@ function syncDataAch(){
 			});//end ajax
 	
 	}
-
-
-
-
-
-// ------------------------------------- Report data
-
-function ffReport(){
-	//$(".errorChk").text(apipath+'get_ff_rpt_activity?cid=PLANBD&mobile='+localStorage.mobile_no+'&sync_code='+localStorage.sync_code);
-	$.ajax({
-			url:apipath+'get_ff_rpt_activity?cid=PLANBD&mobile='+localStorage.mobile_no+'&sync_code='+localStorage.sync_code,
-		  success: function(result) {
-					ach_list=result;
-					ach_list_array=(ach_list).split("rdrd");
-					
-					for(i=0;i<ach_list_array.length;i++){
-						ach_array=ach_list_array[i].split("fdfd");
-						
-						$('#ff_rpt_activity').append('<tr class="plan_tr" style="font-size:11px;"><td >'+ach_array[0]+'</td><td>'+ach_array[1]+'</td><td>'+ach_array[2]+'</td><td>'+ach_array[3]+'</td></tr>');
-						
-						//$('#ff_rpt_activity').append('<tr class="plan_tr" style="font-size:11px;"><td >'+ach_array[0]+'</td><td>'+ach_array[1]+'</td><td>'+ach_array[2]+'</td><td>'+ach_array[3]+'</td><td>'+ach_array[4]+'</td></tr>');
-						
-					}
-			
-					}
-		});
-	
-	}
-
-
-
-
-
-
-
-
-
-
-
 
 
 //=====================================================================================================================Water quality data
@@ -3075,6 +2839,10 @@ wq_select_tech+'&testKitChk='+testKitChk+'&wq_ttc_cfu='+wq_ttc_cfu+'&wq_sl='+wq_
 						$( "input:radio[name='plan_select_wq'][value='"+wq_plan_id+"']" ).attr('checked','');
 						$("#wq_cbo_combo").val("");
 						
+						$("#ach_lat").val("");
+						$("#ach_long").val("");
+						$("#achPhoto").val("");
+							
 						wq_plan_id="";
 						wq_CBO_id="";
 						
@@ -3099,7 +2867,7 @@ navigator.app.exitApp();
 }
 
 function showLatLong(){
-	//alert ($("#ach_lat").val());
+	alert ($("#ach_lat").val());
 	}
 
 // ----------------Camera-----------------------------------------------
@@ -3163,7 +2931,7 @@ function uploadPhotoAch(imageURI, imageName) {
     options.params = params;
 
     var ft = new FileTransfer();
-	ft.upload(imageURI, encodeURI("http://i01.businesssolutionapps.com/welcome/plan_sync/fileUploader/"),winAch,fail,options);
+    ft.upload(imageURI, encodeURI("http://m.businesssolutionapps.com/welcome/wab_sync/fileUploader/"),winAch,fail,options);
 	//ft.upload(imageURI, encodeURI("http://127.0.0.1:8000/welcome/wab_sync/fileUploader/"),winAch,fail,options);
 	
 }
