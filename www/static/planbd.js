@@ -5,9 +5,10 @@ var longitude="";
 var latitudewq="";
 var longitudewq="";
 
-function getLocationInfoAch() {	
-
-	navigator.geolocation.getCurrentPosition(onSuccess, onError);		
+function getLocationInfoAch() {
+	var options = { enableHighAccuracy: false};
+	
+	navigator.geolocation.getCurrentPosition(onSuccess, onError, options);	
 	$(".errorChk").html("Confirming location. Please wait.");
 }
 // onSuccess Geolocation
@@ -2408,7 +2409,7 @@ function WaterQDataSave(){
 										
 										}
 								}else{				
-									if (waterQSavArray.length >= 30){
+									if (waterQSavArray.length >= 10){
 										addFlag=false;					
 									}else{
 										localStorage.water_q_save=waterQStr+'rdrd'+waterQualitySave
@@ -2418,7 +2419,7 @@ function WaterQDataSave(){
 							}
 							
 							if (addFlag==false){
-								$(".errorChk").text("Maximum 30 records allowed to be saved for review");
+								$(".errorChk").text("Maximum 10 records allowed to be saved for review");
 								$("#btn_wq_save").show();
 							}else{
 								wq_plan_id="";
